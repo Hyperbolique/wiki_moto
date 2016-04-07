@@ -1,0 +1,21 @@
+<%= form_for(@moto) do |f| %>
+  <% if @moto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@moto.errors.count, "erreur") %> ont empêché ce dossier d'être enregistré:</h2>
+
+      <ul>
+      <% @moto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nom %><br>
+    <%= f.text_field :nom %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

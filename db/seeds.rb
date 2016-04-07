@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+["Rouge", "Noir", "Blanc", "Bleu sombre", "Bleu clair", "Vert", "Jaune" ].each {|i| Couleur.create(nom: i) }

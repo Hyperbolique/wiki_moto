@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class MotoTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @moto = Moto.new(nom: "Exemple de moto")
+  end
+
+  test "should be valid" do
+    assert @moto.valid?
+  end
 end

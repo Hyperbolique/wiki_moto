@@ -19,20 +19,20 @@ class MotosController < ApplicationController
 	def create
      @moto = Moto.new(moto_params)
 
-     respond_to do |format|
-       if @user.save
-         redirect_to @moto, notice: 'Cette moto a bien été recensé.'
-       else
-         render :new
-       end
-     end
-    end
- def update
     respond_to do |format|
-      if @moto.update(user_params)
-        redirect_to @moto, notice: 'Les informations sur cette moto ont été mises à jour.'
+      if @moto.save
+        format.html { redirect_to @moto, notice: 'Le profil a bien été enregistré.' }
       else
-        render :edit
+        format.html { render :new }
+      end
+    end
+  end
+def update
+    respond_to do |format|
+      if @moto.update(moto_params)
+        format.html { redirect_to @moto, notice: 'Le profil a bien été édité.' }
+      else
+        format.html { render :edit }
       end
     end
   end
@@ -42,7 +42,7 @@ class MotosController < ApplicationController
   def destroy
     @moto.destroy
     respond_to do |format|
-     redirect_to motos_url, notice: 'La page a bien été détruite.'
+     format.html { redirect_to motos_url, notice: 'Le profil a bien été détruit.' }
     end
   end
 
@@ -53,7 +53,7 @@ class MotosController < ApplicationController
     end
 
     # # Never trust parameters from the scary internet, only allow the white list through.
-    # def moto_params
-    #   params.require(:moto).permit()
-    # end
+    def moto_params
+      params.require(:moto).permit(:nom)
+    end
 end
