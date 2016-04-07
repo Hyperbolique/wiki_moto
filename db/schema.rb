@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407103802) do
+ActiveRecord::Schema.define(version: 20160407132617) do
 
   create_table "couleurs", force: :cascade do |t|
     t.string   "nom"
@@ -19,8 +19,21 @@ ActiveRecord::Schema.define(version: 20160407103802) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "couleurs", ["id"], name: "index_couleurs_on_id"
+  add_index "couleurs", ["nom"], name: "index_couleurs_on_nom"
+
+  create_table "couleurs_motos", id: false, force: :cascade do |t|
+    t.integer "couleur_id", null: false
+    t.integer "moto_id",    null: false
+  end
+
+  add_index "couleurs_motos", ["couleur_id"], name: "index_couleurs_motos_on_couleur_id"
+  add_index "couleurs_motos", ["moto_id"], name: "index_couleurs_motos_on_moto_id"
+
   create_table "motos", force: :cascade do |t|
-    t.string "nom"
+    t.string  "nom"
+    t.integer "poids"
+    t.integer "cylindree"
   end
 
 end

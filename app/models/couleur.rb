@@ -1,3 +1,3 @@
 class Couleur < ActiveRecord::Base
-	belongs_to :moto
+	has_and_belongs_to_many :moto
 end

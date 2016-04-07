@@ -7,6 +7,10 @@
     <tr>
       <th>Nom</th>
       <th colspan="3"></th>
+      <th>Poids</th>
+      <th colspan="3"></th>
+      <th>Cylindrée</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -14,6 +18,11 @@
     <% @motos.each do |moto| %>
       <tr>
         <td><%= moto.nom %></td>
+        <th colspan="3"></th>
+        <td><%= moto.poids %></td>
+        <th colspan="3"></th>
+        <td><%= moto.cylindree %></td>
+        <th colspan="3"></th>
         <td><%= link_to 'Show', moto %></td>
         <td><%= link_to 'Edit', edit_moto_path(moto) %></td>
         <td><%= link_to 'Destroy', moto, method: :delete, data: { confirm: 'Etes vous sûr?' } %></td>
