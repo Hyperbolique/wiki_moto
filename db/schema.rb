@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407132617) do
+ActiveRecord::Schema.define(version: 20160408081012) do
+
+  create_table "actus", force: :cascade do |t|
+    t.string   "titre"
+    t.datetime "publication"
+    t.text     "contenu"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "auteur"
+    t.datetime "publication"
+    t.text     "contenu"
+  end
 
   create_table "couleurs", force: :cascade do |t|
     t.string   "nom"
